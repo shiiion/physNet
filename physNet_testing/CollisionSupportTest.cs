@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace physNet_testing
 {
     [TestClass]
-    public class UnitTest1
+    public class CollisionSupportTest
     {
         [TestMethod]
         public void TestMethod1()

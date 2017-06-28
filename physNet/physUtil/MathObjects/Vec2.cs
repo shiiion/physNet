@@ -8,6 +8,8 @@ namespace physNet.physUtil.MathObjects
 
         public static readonly Vec2 Zero = new Vec2();
         public static readonly Vec2 One = new Vec2(1);
+        public static readonly Vec2 YAxis = new Vec2(0, 1);
+        public static readonly Vec2 XAxis = new Vec2(1, 0);
 
         public Vec2(double x, double y) { this.x = x; this.y = y; }
         public Vec2(double xy) { x = xy; y = xy; }

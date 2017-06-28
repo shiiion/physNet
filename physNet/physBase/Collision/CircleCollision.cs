@@ -16,8 +16,8 @@ namespace physNet.physBase.Collision
 
         public override Vec2 Support(Vec2 direction)
         {
-            Vec2 norm = direction.normalized();
-            return norm * Radius;
+            direction.normThis();
+            return direction * Radius;
         }
     }
 }

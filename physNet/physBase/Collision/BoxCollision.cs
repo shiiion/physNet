@@ -17,9 +17,26 @@ namespace physNet.physBase.Collision
 
         public override Vec2 Support(Vec2 direction)
         {
-            Vec2 unrotated = direction.rotate(-Rotation);
-            Vec2 heightScale = unrotated * HalfDimensions.y;
-            Vec2 widthScale = unrotated * HalfDimensions.x;
+            direction.normThis();
+            double boxCornerDist = HalfDimensions.mag;
+            Vec2 unrotated = direction.rotate(-Rotation) * boxCornerDist;
+            
+            if(Math.Abs(unrotated.x) > HalfDimensions.x)
+            {
+                double theta = unrotated.angleBetween(Vec2.XAxis);
+                double hypLength = HalfDimensions.x / Math.Cos(theta);
+                return direction * hypLength;
+            }
+            else if(Math.Abs(unrotated.y) > HalfDimensions.y)
+            {
+                double theta = unrotated.angleBetween(Vec2.YAxis);
+                double hypLength = HalfDimensions.x / Math.Cos(theta);
+                return direction * hypLength;
+            }
+            else
+            {
+                return direction * boxCornerDist;
+            }
         }
 
         public override Vec3 SweptSupport(Vec2 direction, double sweepLength)

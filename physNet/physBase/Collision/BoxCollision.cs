@@ -39,9 +39,10 @@ namespace physNet.physBase.Collision
             }
         }
 
-        public override Vec3 SweptSupport(Vec2 direction, double sweepLength)
+        public override Vec3 SweptSupport(Vec2 direction, Vec3 sweepDelta)
         {
-            Vec3 unrotatedSweep = new Vec3()
+            return new Vec3();
+            //Vec3 unrotatedSweep = new Vec3()
         }
     }
 }

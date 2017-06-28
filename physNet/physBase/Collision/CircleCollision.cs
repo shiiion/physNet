@@ -19,5 +19,11 @@ namespace physNet.physBase.Collision
             direction.normThis();
             return direction * Radius;
         }
+
+        public override Vec3 SupportSweep(Vec2 direction, Vec3 sweepDelta)
+        {
+            double halfSweep = sweepDelta.z / 2;
+
+        }
     }
 }

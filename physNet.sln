@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "physNet", "physNet\physNet.shproj", "{348F9B32-6030-4D3F-B070-BDC187A9CD69}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "physNet_comp", "physNet_comp\physNet_comp.csproj", "{6FE6D4FF-AB13-418D-9707-2EC5838336EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "physNet_testing", "physNet_testing\physNet_testing.csproj", "{7CCB1AF2-7A9A-4986-BFF1-7B7A07321CC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "physNet_testing", "physNet_testing\physNet_testing.csproj", "{6A40BE2D-7807-4A0C-8266-A6589B2462B7}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -23,10 +23,10 @@ Global
 		{6FE6D4FF-AB13-418D-9707-2EC5838336EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FE6D4FF-AB13-418D-9707-2EC5838336EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FE6D4FF-AB13-418D-9707-2EC5838336EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7CCB1AF2-7A9A-4986-BFF1-7B7A07321CC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CCB1AF2-7A9A-4986-BFF1-7B7A07321CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CCB1AF2-7A9A-4986-BFF1-7B7A07321CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CCB1AF2-7A9A-4986-BFF1-7B7A07321CC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A40BE2D-7807-4A0C-8266-A6589B2462B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A40BE2D-7807-4A0C-8266-A6589B2462B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A40BE2D-7807-4A0C-8266-A6589B2462B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A40BE2D-7807-4A0C-8266-A6589B2462B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

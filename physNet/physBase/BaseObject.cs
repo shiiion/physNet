@@ -9,6 +9,7 @@ namespace physNet.physBase
     {
         public Vec2 Position { get; set; }
         public Vec2 Velocity { get; set; }
+        public Vec2 Acceleration { get; set; }
         public double Rotation { get; set; }
         public double AngularVelocity { get; set; }
 

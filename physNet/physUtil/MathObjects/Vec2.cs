@@ -13,6 +13,16 @@ namespace physNet.physUtil.MathObjects
 
         public Vec2(double x, double y) { this.x = x; this.y = y; }
         public Vec2(double xy) { x = xy; y = xy; }
+        
+        public static Vec2 fromAngle(double angle)
+        {
+            return new Vec2(Math.Cos(angle), Math.Sin(angle));
+        }
+
+        public bool isNormal
+        {
+            get { return MathUtil.Compare(mag2, 1, 0.0001); }
+        }
 
         public double dot(Vec2 other) => x * other.x + y * other.y;
 
@@ -44,6 +54,10 @@ namespace physNet.physUtil.MathObjects
 
         public Vec2 normalized => this / mag;
 
+        public override string ToString()
+        {
+            return $"({Math.Round(x, 10)}, {Math.Round(y, 10)})";
+        }
 
         #region Self-Modifiers
 

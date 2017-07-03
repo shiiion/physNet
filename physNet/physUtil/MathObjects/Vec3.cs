@@ -14,6 +14,11 @@ namespace physNet.physUtil.MathObjects
         public Vec3(double x, Vec2 yz) { this.x = x; y = yz.x; z = yz.y; }
         public Vec3(double xyz) { x = xyz; y = xyz; z = xyz; }
 
+        public bool isNormal
+        {
+            get { return MathUtil.Compare(mag2, 1, 0.0001); }
+        }
+
         public double dot(Vec3 other) => x * other.x + y * other.y + z * other.z;
 
         public double mag2 => dot(this);
@@ -33,6 +38,11 @@ namespace physNet.physUtil.MathObjects
         }
 
         public Vec3 normalized() => this / mag;
+
+        public override string ToString()
+        {
+            return $"({x}, {y}, {z})";
+        }
 
 
         #region Self-Modifiers

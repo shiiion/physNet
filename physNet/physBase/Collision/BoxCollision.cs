@@ -6,43 +6,29 @@ namespace physNet.physBase.Collision
     internal class BoxCollision : CollisionShape
     {
         public Vec2 HalfDimensions { get; set; }
-        public double Rotation { get; set; }
+        public override ShapeType Shape { get { return ShapeType.Box; } }
 
-
-        public BoxCollision(Vec2 halfDims, double rotation)
+        public BoxCollision(Vec2 halfDims)
         {
             HalfDimensions = halfDims;
-            Rotation = rotation;
         }
 
-        public override Vec2 Support(Vec2 direction)
+        public override Vec2 Support(Vec2 direction, double rotation)
         {
             direction.normThis();
-            double boxCornerDist = HalfDimensions.mag;
-            Vec2 unrotated = direction.rotate(-Rotation) * boxCornerDist;
-            
-            if(Math.Abs(unrotated.x) > HalfDimensions.x)
+            Vec2 dw = new Vec2(HalfDimensions.x, 0).rotateThis(rotation);
+            if(Math.Sign(direction.dot(dw)) < 0)
             {
-                double theta = unrotated.angleBetween(Vec2.XAxis);
-                double hypLength = HalfDimensions.x / Math.Cos(theta);
-                return direction * hypLength;
+                dw = -dw;
             }
-            else if(Math.Abs(unrotated.y) > HalfDimensions.y)
-            {
-                double theta = unrotated.angleBetween(Vec2.YAxis);
-                double hypLength = HalfDimensions.x / Math.Cos(theta);
-                return direction * hypLength;
-            }
-            else
-            {
-                return direction * boxCornerDist;
-            }
-        }
 
-        public override Vec3 SweptSupport(Vec2 direction, Vec3 sweepDelta)
-        {
-            return new Vec3();
-            //Vec3 unrotatedSweep = new Vec3()
+            Vec2 dh = new Vec2(0, HalfDimensions.y).rotateThis(rotation);
+            if(Math.Sign(direction.dot(dh)) < 0)
+            {
+                dh = -dh;
+            }
+
+            return dw + dh;
         }
     }
 }

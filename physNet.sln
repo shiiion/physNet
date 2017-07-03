@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "physNet_comp", "physNet_comp\physNet_comp.csproj", "{6FE6D4FF-AB13-418D-9707-2EC5838336EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "physNet_testing", "physNet_testing\physNet_testing.csproj", "{6A40BE2D-7807-4A0C-8266-A6589B2462B7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6FE6D4FF-AB13-418D-9707-2EC5838336EC} = {6FE6D4FF-AB13-418D-9707-2EC5838336EC}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

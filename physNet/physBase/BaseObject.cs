@@ -5,6 +5,17 @@ using physNet.physUtil.MathObjects;
 
 namespace physNet.physBase
 {
+    internal struct MoveResult
+    {
+        public Vec2 Pos, Vel;
+        public double Rot;
+
+        public MoveResult(Vec2 p, Vec2 v, double r)
+        {
+            Pos = p; Vel = v; Rot = r;
+        }
+    }
+
     public class BaseObject : ICollider
     {
         public Vec2 Position { get; set; }
@@ -13,7 +24,12 @@ namespace physNet.physBase
         public double Rotation { get; set; }
         public double AngularVelocity { get; set; }
 
+        public Vec2 PartitionerBounds => bounds.AABB;
+        public Vec2 BoundsCenter => bounds.AABBCenter;
+
         private CollisionShape bounds;
+
+
 
         /// <summary>
         /// Future unchecked position of object

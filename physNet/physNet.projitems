@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)physBase\BaseObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)physBase\Collision\BoxCollision.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)physBase\Collision\BroadPhase\ObjectPartitioner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)physBase\Collision\CircleCollision.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)physBase\Collision\CollisionShape.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)physBase\Collision\PolygonCollision.cs" />
@@ -18,5 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)physUtil\MathObjects\MathUtil.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)physUtil\MathObjects\Vec2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)physUtil\MathObjects\Vec3.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)physBase\Collision\NarrowPhase\" />
   </ItemGroup>
 </Project>

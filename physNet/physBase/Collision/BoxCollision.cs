@@ -5,8 +5,13 @@ namespace physNet.physBase.Collision
 {
     internal class BoxCollision : CollisionShape
     {
+        private Vec2 aabb;
+        private Vec2 aabbCenter;
+
         public Vec2 HalfDimensions { get; set; }
-        public override ShapeType Shape { get { return ShapeType.Box; } }
+        public override ShapeType Shape => ShapeType.Box;
+        public override Vec2 AABB => aabb;
+        public override Vec2 AABBCenter => aabbCenter;
 
         public BoxCollision(Vec2 halfDims)
         {

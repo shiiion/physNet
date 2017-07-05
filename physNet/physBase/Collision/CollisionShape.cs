@@ -18,6 +18,15 @@ namespace physNet.physBase.Collision
         /// <returns></returns>
         public abstract Vec2 Support(Vec2 direction, double rotation);
         public abstract ShapeType Shape { get; }
+        /// <summary>
+        /// Full width and height of an AABB which contains the entire shape
+        /// </summary>
+        public abstract Vec2 AABB { get; }
+
+        /// <summary>
+        /// Offset from the origin of the AABB's center
+        /// </summary>
+        public abstract Vec2 AABBCenter { get; }
 
         public static CollisionShape CreateCircle(double radius) => new CircleCollision(radius);
         public static CollisionShape CreateBox(Vec2 halfDims) => new BoxCollision(halfDims);

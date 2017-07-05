@@ -7,11 +7,33 @@ namespace physNet.physBase.Collision
     internal class PolygonCollision : CollisionShape
     {
         private List<Vec2> points;
-        public override ShapeType Shape { get { return ShapeType.Polygon; } }
+        private Vec2 aabb;
+        private Vec2 aabbCenter;
+
+        public override ShapeType Shape => ShapeType.Polygon;
+        public override Vec2 AABB => aabb;
+        public override Vec2 AABBCenter => aabbCenter;
 
         public PolygonCollision(List<Vec2> points)
         {
             this.points = points;
+            refreshAABB();
+        }
+
+        private void refreshAABB()
+        {
+            double lX;double lY = lX = double.PositiveInfinity;
+            double gX;double gY = gX = double.NegativeInfinity;
+
+            foreach(Vec2 point in points)
+            {
+                if (point.x < lX) lX = point.x;
+                if (point.x > gX) gX = point.x;
+                if (point.y < lY) lY = point.y;
+                if (point.y > gY) gY = point.y;
+            }
+            aabb = new Vec2(gX - lX, gY - lY);
+            aabbCenter = new Vec2((gX + lX) / 2, (gY + lY) / 2);
         }
 
         public override Vec2 Support(Vec2 direction, double rotation)

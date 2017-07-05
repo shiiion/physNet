@@ -15,5 +15,8 @@ namespace physNet.physBase
         double AngularVelocity { get; set; }
 
         Vec2 Support(Vec2 direction);
+
+        Vec2 PartitionerBounds { get; }
+        Vec2 BoundsCenter { get; }
     }
 }

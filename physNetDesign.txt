@@ -1,0 +1,33 @@
+physNet general description
+	-physNet is a 2D physics engine
+	-intended to be the controller of an entity-based system
+		-the base IObject interface defines a position, velocity, and rotation which entities will use
+		-the ICollider interface defines broad and narrow-phase bounds for an object, managing collisions
+	-objects are ran through their simulation, and colliders are corrected
+
+physNet FlowChart
+	Frame (receives deltaTime value)
+	|	Simulation
+	|	|	move all IPhysObjects (results either cached )
+	|	|	if not ICollider -> validated = false
+	|	Broadphase initial	
+	|	|	Relocate all nonstatic objects in the quadtree
+	|	|	
+	|
+	|
+	|
+	|
+	|
+	|
+	|
+	|
+	|
+	|
+	|
+	|
+	|
+	|
+	|
+
+
+physNet component design

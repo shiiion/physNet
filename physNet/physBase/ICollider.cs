@@ -6,17 +6,23 @@ namespace physNet.physBase
     /// <summary>
     /// Any object which can collide implements this
     /// </summary>
-    public interface ICollider
+    public interface ICollider : IPhysObject
     {
-        Vec2 Position { get; set; }
-        Vec2 Velocity { get; set; }
-        Vec2 Acceleration { get; set; }
-        double Rotation { get; set; }
-        double AngularVelocity { get; set; }
-
+        /// <summary>
+        /// Support function for this collider
+        /// </summary>
+        /// <param name="direction">Direction for the support point</param>
+        /// <returns>Support point</returns>
         Vec2 Support(Vec2 direction);
 
+        /// <summary>
+        /// Width and height of the enclosing AABB
+        /// </summary>
         Vec2 PartitionerBounds { get; }
+        /// <summary>
+        /// Center of the enclosing AABB
+        /// </summary>
         Vec2 BoundsCenter { get; }
+
     }
 }

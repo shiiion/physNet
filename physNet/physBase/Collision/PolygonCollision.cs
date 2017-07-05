@@ -17,10 +17,9 @@ namespace physNet.physBase.Collision
         public PolygonCollision(List<Vec2> points)
         {
             this.points = points;
-            refreshAABB();
         }
 
-        private void refreshAABB()
+        private void buildAABB()
         {
             double lX;double lY = lX = double.PositiveInfinity;
             double gX;double gY = gX = double.NegativeInfinity;

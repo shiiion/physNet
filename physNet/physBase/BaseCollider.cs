@@ -16,7 +16,7 @@ namespace physNet.physBase
         }
     }
 
-    public class BaseObject : ICollider
+    public class BaseCollider : ICollider
     {
         public Vec2 Position { get; set; }
         public Vec2 Velocity { get; set; }

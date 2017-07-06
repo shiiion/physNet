@@ -8,23 +8,21 @@ physNet general description
 physNet FlowChart
 	Frame (receives deltaTime value)
 	|	Simulation
-	|	|	move all IPhysObjects (results either cached )
-	|	|	if not ICollider -> validated = false
+	|	|	move all IPhysObjects (results cached)
 	|	Broadphase initial	
-	|	|	Relocate all nonstatic objects in the quadtree
-	|	|	
-	|
-	|
-	|
-	|
-	|
-	|
-	|
-	|
-	|
-	|
-	|
-	|
+	|	|	Relocate all nonstatic objects
+	|	Broad->Narrow
+	|	|	loop thru all objects
+	|	|	|	query range (O(log n))
+	|	|	|	run GJK collision detection
+	|	|	|	if they overlap -> run EPA manifold generation
+	|	|	|	throw manifold into a list (manifold: normal vec2, overlap double, portal bool)
+	|	Resolution
+	|	|	loop thru all manifolds
+	|	|	|	loop thru N iterations
+	|	|	|	|	correct position (with some tuned fraction)
+	|	|	|	|	correct velocity (rebound -> velocity)
+	|	|	|	
 	|
 	|
 	|

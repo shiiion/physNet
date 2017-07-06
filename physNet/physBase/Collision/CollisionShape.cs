@@ -8,6 +8,28 @@ namespace physNet.physBase.Collision
         Circle, Box, Polygon
     };
 
+    public struct AABB
+    {
+        /// <summary>
+        /// Half-width and Half-height of the box
+        /// </summary>
+        public Vec2 Bounds;
+        /// <summary>
+        /// The AABB's offset from the center of the collision shape
+        /// </summary>
+        public Vec2 Center;
+
+        public AABB(Vec2 bounds, Vec2 center)
+        {
+            Bounds = bounds; Center = center;
+        }
+        public AABB(double boundsX, double boundsY, double centerX, double centerY)
+        {
+            Bounds = new Vec2(boundsX, boundsY);
+            Center = new Vec2(centerX, centerY);
+        }
+    }
+
     public abstract class CollisionShape
     {
         /// <summary>
@@ -18,15 +40,8 @@ namespace physNet.physBase.Collision
         /// <returns></returns>
         public abstract Vec2 Support(Vec2 direction, double rotation);
         public abstract ShapeType Shape { get; }
-        /// <summary>
-        /// Full width and height of an AABB which contains the entire shape
-        /// </summary>
-        public abstract Vec2 AABB { get; }
 
-        /// <summary>
-        /// Offset from the origin of the AABB's center
-        /// </summary>
-        public abstract Vec2 AABBCenter { get; }
+        public abstract AABB GetBounds(double rotation);
 
         public static CollisionShape CreateCircle(double radius) => new CircleCollision(radius);
         public static CollisionShape CreateBox(Vec2 halfDims) => new BoxCollision(halfDims);

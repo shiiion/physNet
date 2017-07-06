@@ -5,17 +5,24 @@ namespace physNet.physBase.Collision
 {
     internal class BoxCollision : CollisionShape
     {
-        private Vec2 aabb;
-        private Vec2 aabbCenter;
 
         public Vec2 HalfDimensions { get; set; }
         public override ShapeType Shape => ShapeType.Box;
-        public override Vec2 AABB => aabb;
-        public override Vec2 AABBCenter => aabbCenter;
 
         public BoxCollision(Vec2 halfDims)
         {
             HalfDimensions = halfDims;
+        }
+
+        public override AABB GetBounds(double rotation)
+        {
+            Vec2 r1 = HalfDimensions.rotate(rotation);
+            Vec2 r2 = new Vec2(HalfDimensions.x, -HalfDimensions.y).rotateThis(rotation);
+
+            double bX = Math.Max(Math.Abs(r1.x), Math.Abs(r2.x));
+            double bY = Math.Max(Math.Abs(r1.y), Math.Abs(r2.y));
+
+            return new AABB(bX, bY, 0, 0);
         }
 
         public override Vec2 Support(Vec2 direction, double rotation)

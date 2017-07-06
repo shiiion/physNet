@@ -7,20 +7,17 @@ namespace physNet.physBase.Collision
     internal class PolygonCollision : CollisionShape
     {
         private List<Vec2> points;
-        private Vec2 aabb;
-        private Vec2 aabbCenter;
-
         public override ShapeType Shape => ShapeType.Polygon;
-        public override Vec2 AABB => aabb;
-        public override Vec2 AABBCenter => aabbCenter;
 
         public PolygonCollision(List<Vec2> points)
         {
             this.points = points;
         }
 
-        private void buildAABB()
+
+        public override AABB GetBounds(Vec2 center, double rotation)
         {
+            //try cache AABB by rotation to save time? benchmark it
             double lX;double lY = lX = double.PositiveInfinity;
             double gX;double gY = gX = double.NegativeInfinity;
 
@@ -31,8 +28,8 @@ namespace physNet.physBase.Collision
                 if (point.y < lY) lY = point.y;
                 if (point.y > gY) gY = point.y;
             }
-            aabb = new Vec2(gX - lX, gY - lY);
-            aabbCenter = new Vec2((gX + lX) / 2, (gY + lY) / 2);
+            return new AABB(new Vec2(gX - lX, gY - lY),
+                center + new Vec2((gX + lX) / 2, (gY + lY) / 2));
         }
 
         public override Vec2 Support(Vec2 direction, double rotation)

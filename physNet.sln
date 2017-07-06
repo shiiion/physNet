@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "physNet", "physNet\physNet.shproj", "{348F9B32-6030-4D3F-B070-BDC187A9CD69}"
 EndProject
@@ -10,6 +10,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "physNet_testing", "physNet_testing\physNet_testing.csproj", "{6A40BE2D-7807-4A0C-8266-A6589B2462B7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6FE6D4FF-AB13-418D-9707-2EC5838336EC} = {6FE6D4FF-AB13-418D-9707-2EC5838336EC}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EEB3C8CD-B6E4-4850-9FD7-3649F0C5813B}"
+	ProjectSection(SolutionItems) = preProject
+		physNetDesign.txt = physNetDesign.txt
 	EndProjectSection
 EndProject
 Global

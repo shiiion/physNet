@@ -54,6 +54,8 @@ namespace physNet.physUtil.MathObjects
 
         public Vec2 normalized => this / mag;
 
+        public Vec2 abs => new Vec2(Math.Abs(x), Math.Abs(y));
+
         public override string ToString()
         {
             return $"({Math.Round(x, 10)}, {Math.Round(y, 10)})";

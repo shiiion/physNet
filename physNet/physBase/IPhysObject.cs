@@ -9,11 +9,11 @@ namespace physNet.physBase
         /// </summary>
         Vec2 Position { get; set; }
         /// <summary>
-        /// Velocity/direction of the object
+        /// Velocity of the object
         /// </summary>
         Vec2 Velocity { get; set; }
         /// <summary>
-        /// Acceleration/velocity direction of the object
+        /// Acceleration of the object
         /// </summary>
         Vec2 Acceleration { get; set; }
         /// <summary>
@@ -32,6 +32,15 @@ namespace physNet.physBase
         /// </summary>
         bool Validated { get; }
 
-        void Simulate(double dt)
+        /// <summary>
+        /// Tell the object that the simulation tick is beginning
+        /// </summary>
+        /// <param name="dt">time slice of current frame</param>
+        void SimulationBegin(double dt);
+
+        /// <summary>
+        /// Tell the object that the simulation tick is ending
+        /// </summary>
+        void SimulationEnd();
     }
 }

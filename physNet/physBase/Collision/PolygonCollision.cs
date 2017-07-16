@@ -15,7 +15,7 @@ namespace physNet.physBase.Collision
         }
 
 
-        public override AABB GetBounds(Vec2 center, double rotation)
+        public override AABB GetBounds(double rotation)
         {
             //try cache AABB by rotation to save time? benchmark it
             double lX;double lY = lX = double.PositiveInfinity;
@@ -29,7 +29,7 @@ namespace physNet.physBase.Collision
                 if (point.y > gY) gY = point.y;
             }
             return new AABB(new Vec2(gX - lX, gY - lY),
-                center + new Vec2((gX + lX) / 2, (gY + lY) / 2));
+                            new Vec2((gX + lX) / 2, (gY + lY) / 2));
         }
 
         public override Vec2 Support(Vec2 direction, double rotation)

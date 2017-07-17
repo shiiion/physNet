@@ -7,8 +7,6 @@ physNet general description
 
 physNet FlowChart
 	Frame (receives deltaTime value)
-	|	Simulation
-	|	|	move all IPhysObjects (results cached)
 	|	Broadphase initial	
 	|	|	Relocate all nonstatic objects
 	|	Broad->Narrow
@@ -16,16 +14,39 @@ physNet FlowChart
 	|	|	|	query range (O(log n))
 	|	|	|	run GJK collision detection
 	|	|	|	if they overlap -> run EPA manifold generation
-	|	|	|	throw manifold into a list (manifold: normal vec2, overlap double, portal bool)
+	|	|	|	throw manifold into a list (manifold: normal vec2, overlap double, contactA vec2, contactB vec2, tangentA vec2, tangentB vec2)
 	|	Resolution
-	|	|	loop thru all manifolds
-	|	|	|	loop thru N iterations
-	|	|	|	|	correct position (with some tuned fraction)
-	|	|	|	|	correct velocity (rebound -> velocity)
-	|	|	|	
-	|
-	|
+	|	|	loop thru N iterations
+	|	|	|	loop thru all manifolds
+	|	|	|	|	run all collision constraints
+	|	|	|	run all extraneous constraints
+	|	Simulation
+	|	|	move all IPhysObjects
 	|
 
 
 physNet component design
+	Object Partitioners (broadphase)
+		Quadtree-
+		N_ObjectPartitioner-
+	Collision Managers (narrowphase)
+		GJK_CollisionDetector-
+		EPA_ManifoldGeneration-
+		EPA_ManifoldPersistence-
+	Impulse-based Constraints
+		Constraints-
+			CollisionConstraint-
+			FrictionConstraint-
+			DistanceConstraint-
+			WeldConstraint-
+			LineConstraint-
+	Objects
+		PhysObject-
+		Collider-
+		Object Shapes
+			Circle-
+			Box-
+			Polygon-
+	Object manager (World)- container for all objects as well as manifolds
+		Raycaster- Allows rays to be cast in any direction through the world, reports back first (if any) hits
+
